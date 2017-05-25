@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ ! -f /opt/alexa/.initialized ]; then
   touch /opt/alexa/.initialized
@@ -55,10 +56,13 @@ if [ ! -f /opt/alexa/.initialized ]; then
   Locale=${ALEXA_LOCALE} \
   ProductID=${ALEXA_DEVICE_ID} \
   DeviceSerialNumber=${ALEXA_DEVICE_SERIAL_NUMBER} \
-  Wake_Word_Detection_Enabled=1 \
+  Wake_Word_Detection_Enabled=true \
   envsubst < template_config_json > config.json
-
 
 fi
 
+# Start companion service
+start-stop-daemon -b -d /opt/alexa/companionService -S --exec /usr/bin/npm -- start
+
+# Sttart wake up agent
 
