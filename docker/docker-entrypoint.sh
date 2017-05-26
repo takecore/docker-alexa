@@ -64,6 +64,11 @@ fi
 # Start companion service
 start-stop-daemon -b -d /opt/alexa/companionService -S --exec /usr/bin/npm -- start
 
+# Start virtual X-Server and VNC-Server
+start-stop-daemon -b -S --exec /usr/bin/Xvfb -- -screen 0 800x600x16 -ac
+start-stop-daemon -b -S --exec /usr/bin/x11vnc -- -display :0 -forever -nopw -quiet
+export DISPLAY=:0
+
 # Start alexa java client
 cd /opt/alexa/javaclient
 mvn exec:exec

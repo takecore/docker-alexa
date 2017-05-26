@@ -14,7 +14,9 @@ ENV PACKAGES \
   vlc-data \
   sudo \
   gettext \
-  maven
+  maven \
+  x11vnc \
+  xvfb
 
 # Define build packages to be installed temporarily
 ENV BUILD_PACKAGES \
@@ -66,7 +68,7 @@ RUN apt-get update && \
 
 VOLUME /opt/alexa/certs
 
-EXPOSE 3000
+EXPOSE 3000 5900
 
 COPY ./docker /docker
 ENTRYPOINT ["/docker/docker-entrypoint.sh"]

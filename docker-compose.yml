@@ -4,6 +4,7 @@ services:
     image: mruettgers/alexa
     expose:
       - "3000"
+      - "5900"
     restart: on-failure
     labels:
       - "traefik.backend=alexa:3000"
