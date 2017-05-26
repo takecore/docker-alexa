@@ -1,0 +1,24 @@
+version: '3'
+services:
+  alexa:
+    image: mruettgers/alexa
+    expose:
+      - "3000"
+    restart: on-failure
+    labels:
+      - "traefik.backend=alexa:3000"
+      - "traefik.frontend.rule=Host:alexa.home"
+    environment:
+      - ALEXA_LOCALE=${ALEXA_LOCALE}
+      - ALEXA_DEVICE_ID=${ALEXA_DEVICE_ID}
+      - ALEXA_DEVICE_SERIAL_NUMBER=${ALEXA_DEVICE_SERIAL_NUMBER}
+      - ALEXA_OAUTH_CLIENT_ID=${ALEXA_OAUTH_CLIENT_ID}
+      - ALEXA_OAUTH_CLIENT_SECRET=${ALEXA_OAUTH_CLIENT_SECRET}
+      - COMPANION_DNS_NAME=${ALEXA_COMPANION_DNS_NAME}
+      - COMPANION_URL=${ALEXA_COMPANION_URL}
+      - SSL_CA_COMMON_NAME=${ALEXA_SSL_CA_COMMON_NAME}
+      - SSL_COUNTRY_NAME=${ALEXA_SSL_COUNTRY_NAME}
+      - SSL_STATE_OR_PROVINCE=${ALEXA_SSL_STATE_OR_PROVINCE}
+      - SSL_CITY=${ALEXA_SSL_CITY}
+      - SSL_ORGANIZATION=${ALEXA_SSL_ORGANIZATION}
+      - SSL_ORGANIZATIONAL_UNIT=${ALEXA_SSL_ORGANIZATIONAL_UNIT}
