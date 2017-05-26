@@ -64,5 +64,6 @@ fi
 # Start companion service
 start-stop-daemon -b -d /opt/alexa/companionService -S --exec /usr/bin/npm -- start
 
-# Sttart wake up agent
-
+# Start alexa java client
+cd /opt/alexa/javaclient
+mvn exec:exec
