@@ -43,7 +43,7 @@ RUN apt-get update && \
   git clone https://github.com/alexa/alexa-avs-sample-app -b master && \
   git clone https://github.com/Kitt-AI/snowboy.git && \
 
-  # Prepare certs, client, companion service and wake-word-agent
+  # Prepare certs, client and companion service
   # Certs will be generated in /docker/docker-entrypoint.sh
   mkdir -p /opt/alexa && \
   mkdir /opt/alexa/certs && cp /usr/local/src/alexa-avs-sample-app/samples/javaclient/ssl.cnf /opt/alexa/certs/ && \
