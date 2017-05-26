@@ -59,11 +59,13 @@ RUN apt-get update && \
   mvn install && \
 
   # Cleanup packages, build packages and sources
-  apt-get -y purge $BUILD_PACKAGES && \
+  apt-get -y purge $BUILD_PACKAGES /
+    openjdk-8-jre-headless && \
   apt-get autoremove -y && \
   rm -rf /usr/share/doc/* && \
   rm -rf /usr/share/man/* && \
   rm -rf /usr/share/locale/* && \
+  rm- rf /var/cache/* && \
   rm -rf /usr/local/src/*
 
 VOLUME /opt/alexa/certs
