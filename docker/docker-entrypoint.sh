@@ -50,7 +50,6 @@ if [ ! -f /opt/alexa/.initialized ]; then
 
   # Configure java client
   cd /opt/alexa/javaclient
-  sed -i -r "s/(\"serviceUrl\":)[^,]+,/\1\"\${COMPANION_URL}\",/" template_config_json
   Java_Client_Loc=/opt/alexa \
   KeyStorePassword="" \
   Locale=${ALEXA_LOCALE} \
